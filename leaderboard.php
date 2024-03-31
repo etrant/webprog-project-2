@@ -1,49 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Leader Board</title>
-    <style>
-        body {
-            background-image:url("./images/LDbackground.PNG");
-			background-repeat:no-repeat;
-			background-attachment:fixed;
-			background-size:100% 100%;
-            color: white;
-        }
-
-        h1 {
-            margin-top: 5%;
-            text-align: center;
-        }
-
-        .outerdiv {
-            margin-top: 0;
-            margin-left: 25%;
-            margin-right: 25%;
-            display: flex;
-            flex-direction: row;
-            font-size: 20px;
-        }
-
-        .left {
-            width: 50%;
-            text-align: center;
-        }
-
-        .right {
-            width: 50%;
-            text-align: center;
-        }
-    </style>
+    <title>Survive the Forest</title>
+    <link href="./styles/leaderboard.css" rel="stylesheet">
 </head>
 <body>
-    <h1>"GameName" Leader Board</h1>
+    <h1>LeaderBoard</h1>
     <div class="outerdiv">
         <div class="left">
-            Username:<br>
+            <b>Username</b><br>
             <?php
-            // Read the contents of the file and display usernames
             $lines = file("account_test.txt", FILE_IGNORE_NEW_LINES);
+            usort($lines, function($a, $b) {
+                $partsA = explode(",", $a);
+                $partsB = explode(",", $b);
+                return $partsB[2] - $partsA[2];
+            });
             foreach ($lines as $line) {
                 $parts = explode(",", $line);
                 echo $parts[0] . "<br>";
@@ -51,9 +23,8 @@
             ?>
         </div>
         <div class="right">
-            Longest day survived:<br>
+            <b>Most days survived</b><br>
             <?php
-            // Display corresponding scores
             foreach ($lines as $line) {
                 $parts = explode(",", $line);
                 echo $parts[2] . "<br>";

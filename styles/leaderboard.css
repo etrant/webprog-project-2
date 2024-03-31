@@ -1,0 +1,31 @@
+body {
+    background-image:url("../images/LDbackground.jpg");
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-size:100% 100%;
+    color: white;
+}
+
+h1 {
+    margin-top: 5%;
+    text-align: center;
+}
+
+.outerdiv {
+    margin-top: 0;
+    margin-left: 25%;
+    margin-right: 25%;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+}
+
+.left {
+    width: 50%;
+    text-align: center;
+}
+
+.right {
+    width: 50%;
+    text-align: center;
+}
