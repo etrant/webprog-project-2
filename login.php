@@ -26,7 +26,7 @@
             $data = explode(",", $line);
             if ($user === trim($data[0]) && $pass === trim($data[1])) {
     ?>
-                <div class="suceessful">
+                <div class="sucessful">
                     <h1>Successful Login: Hello <?php echo $user ?></h1>
                     <a href="">
                         <h2>Continue to your story</h2>
@@ -40,7 +40,7 @@
 
         fclose($file);
         ?>
-        <h1 class="field">Invalid Username and/or Password</h1>
+        <h1 class="failed">Invalid Username and/or Password</h1>
     <?php
     }
     ?>
@@ -48,9 +48,9 @@
     <div class="features">
         <form method="post" action="login.php">
             Username<br>
-            <input type="text" name="username" width="60"> <BR><BR>
+            <input type="text" name="username" width="60" required> <BR><BR>
             Password<br>
-            <input type="text" name="password"> <BR>
+            <input type="text" name="password" required> <BR>
             <input type="submit" value="Login"> | Need an account? <a href="signup.php">Sign Up</a>
         </form>
     </div>
