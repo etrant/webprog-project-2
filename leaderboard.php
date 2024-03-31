@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Survive the Forest</title>
     <link href="./styles/leaderboard.css" rel="stylesheet">
 </head>
+
 <body>
-    <h1>LeaderBoard</h1>
+    <h1>Leaderboard</h1>
     <div class="outerdiv">
         <div class="left">
             <b>Username</b><br>
             <?php
             $lines = file("account_test.txt", FILE_IGNORE_NEW_LINES);
-            usort($lines, function($a, $b) {
+            usort($lines, function ($a, $b) {
                 $partsA = explode(",", $a);
                 $partsB = explode(",", $b);
                 return $partsB[2] - $partsA[2];
@@ -33,4 +35,5 @@
         </div>
     </div>
 </body>
+
 </html>
