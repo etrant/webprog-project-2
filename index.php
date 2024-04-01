@@ -46,7 +46,8 @@
     ?>
 
     <div class="features">
-        <form method="post" action="login.php">
+        <!--todo: Post to game php-->
+        <form method="post" action="index.php">
             Username<br>
             <input type="text" name="username" width="60" required> <BR><BR>
             Password<br>

@@ -25,7 +25,7 @@
             ?>
         </div>
         <div class="right">
-            <b>Most days survived</b><br>
+            <b>Nights survived</b><br>
             <?php
             foreach ($lines as $line) {
                 $parts = explode(",", $line);
