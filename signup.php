@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+        <link rel="stylesheet" type="text/css"media="all" href="styles/styles.css" />
     <title>Document</title>
 </head>
 
@@ -13,38 +13,33 @@
 
     if ($_POST["username"] != null && $_POST["password"] != null) {
 
-        $user = $_POST["username"];
-        $pass = $_POST["password"];
-        $passConfirm = $_POST["password-confirm"];
-
-
-
-
-
-
-
-        //Checks if passwords are the same
-        if ($passConfirm == $pass) {
+    $user = $_POST["username"];
+    $pass = $_POST["password"];
+    $passConfirm= $_POST["password-confirm"];
+   
+if($passConfirm != $pass){
 
     ?>
-            <p class="sucessful"> <?php echo "Hello " . $user; ?></p>
+<p class="failed">Password Confirmation is not the same as Password</p>  
 
-        <?php
-
-            $file_name = 'account.txt';
-            $file = fopen($file_name, 'a');
-            // username, password, level_id, score(nights survived)
-            fwrite($file, $user . "," . $pass . "0" . "," . "0" . "\n");
-            fclose($file);
-        } else {
-        ?>
-            <p class="failed">Password Confirmation is not the same as Password</p>
     <?php
-
-        }
-    }
-    ?>
-
+}    
+else{
+?>
+<div class="sucessful">
+<p> Hello <?php echo $user; ?></p>
+<p><a href="">Lets start your journey here</a></p>
+</div>
+<?php
+   
+     $file_name = 'account.txt';
+    $file = fopen($file_name,'a');
+    fwrite($file, $user.','.$pass."\n");
+    fclose($file);
+    
+}
+}
+?>
 
 
 
