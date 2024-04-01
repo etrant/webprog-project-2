@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css"media="all" href="styles/styles.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
     <title>Document</title>
 </head>
 
@@ -13,33 +13,32 @@
 
     if ($_POST["username"] != null && $_POST["password"] != null) {
 
-    $user = $_POST["username"];
-    $pass = $_POST["password"];
-    $passConfirm= $_POST["password-confirm"];
-   
-if($passConfirm != $pass){
+        $user = $_POST["username"];
+        $pass = $_POST["password"];
+        $passConfirm = $_POST["password-confirm"];
+
+        if ($passConfirm != $pass) {
 
     ?>
-<p class="failed">Password Confirmation is not the same as Password</p>  
+            <p class="failed">Password Confirmation is not the same as Password</p>
 
+        <?php
+        } else {
+        ?>
+            <div class="sucessful">
+                <p> Hello <?php echo $user; ?></p>
+                <p><a href="">Lets start your journey here</a></p>
+            </div>
     <?php
-}    
-else{
-?>
-<div class="sucessful">
-<p> Hello <?php echo $user; ?></p>
-<p><a href="">Lets start your journey here</a></p>
-</div>
-<?php
-   
-     $file_name = 'account.txt';
-    $file = fopen($file_name,'a');
-    fwrite($file, $user.','.$pass."\n");
-    fclose($file);
-    
-}
-}
-?>
+
+            $file_name = 'account.txt';
+            $file = fopen($file_name, 'a');
+            // Usename, password, nights survived, level_id
+            fwrite($file, $user . ',' . $pass . ',' . '0' . ',' . '0');
+            fclose($file);
+        }
+    }
+    ?>
 
 
 
@@ -51,7 +50,7 @@ else{
             <input type="text" name="password" required> <BR><br>
             Confirm Password<br>
             <input type="text" name="password-confirm" required> <BR>
-            <input type="submit" value="Sign Up"> | Have an account? <a href="login.php">Login</a>
+            <input type="submit" value="Sign Up"> | Have an account? <a href="index.php">Login</a>
         </form>
 
     </div>
