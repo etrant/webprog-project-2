@@ -12,7 +12,7 @@
         <div class="left">
             <b>Username</b><br>
             <?php
-            $lines = file("account_test.txt", FILE_IGNORE_NEW_LINES);
+            $lines = file("account.txt", FILE_IGNORE_NEW_LINES);
             usort($lines, function ($a, $b) {
                 $partsA = explode(",", $a);
                 $partsB = explode(",", $b);
