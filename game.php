@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Survive the Forest</title>
     <link rel="stylesheet" href="styles/game.css">
 </head>
 
 <body>
-        <!--
+    <!--
             make login the index.php
             read username post and start game
             start them on matching level
