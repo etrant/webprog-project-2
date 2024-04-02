@@ -36,6 +36,10 @@
             ?>
         </div>
     </div>
+    <footer>
+        <p>Copyright &copy; 2024 Survive the Forest Team</p>
+        <a href="index.php">Return to Home</a>
+    </footer>
 </body>
 
 </html>

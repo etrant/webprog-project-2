@@ -9,10 +9,7 @@
 </head>
 
 <body>
-    <!--todo: link to leaderboard needed-->
-
     <?php
-
     if (isset($_POST["username"]) && $_POST["password"]) {
 
         $user = $_POST["username"];
@@ -25,12 +22,16 @@
             $line = fgets($file);
             $data = explode(",", $line);
             if ($user === trim($data[0]) && $pass === trim($data[1])) {
+                if (!session_id()) session_start();
+                include("helper_functions.php");
+                $data = getUserData($_POST["username"]);
+                $_SESSION["user"]  = $data[0];
+                $_SESSION["score"]  = $data[2];
+                $_SESSION["level_id"]  = $data[3];
     ?>
                 <div class="sucessful">
-                    <h1>Successful Login: Hello <?php echo $user ?></h1>
-                    <a href="">
-                        <h2>Continue to your story</h2>
-                    </a>
+                    <h2>Successful Login: Welcome back <?php echo $_SESSION["user"] ?></h2>
+                    <a href="game.php">Return to the forest</a>
                 </div>
         <?php
                 fclose($file);
@@ -40,27 +41,37 @@
 
         fclose($file);
         ?>
-        <h1 class="failed">Invalid Username and/or Password</h1>
+        <h2 class="failed">Invalid Username and/or Password</h2>
     <?php
     }
     ?>
 
-    <div class="features">
-        <!--todo: Post to game php-->
-        <form method="post" action="index.php">
-            Username<br>
-            <input type="text" name="username" width="60" required> <BR><BR>
-            Password<br>
-            <input type="text" name="password" required> <BR>
-            <input type="submit" value="Login"> | Need an account? <a href="signup.php">Sign Up</a>
-        </form>
-    </div>
+    <div class="container">
+        <img src="images/tree.png" style="filter:invert(1);">
 
-    <div class="message">
-        <h1>Survive the Forest</h1>
-        <p>An exhilirating text-based RPG</p>
+        <div class="features">
+            <!--todo: Post to game php-->
+            <div class="message">
+                <h1>Survive the Forest</h1>
+                <p>A spine-chilling text-based journey through a forest long forgotten</p>
+            </div>
+            <form method="post" action="index.php">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" width="60" placeholder="Enter your username" required>
+                <label for="user">Password</label>
+                <input type="text" name="password" id="password" placeholder="Enter your password" required>
+                <div class="signup-group">
+                    <button type="submit" value="Login">Login</button>
+                    <p>Don't have an account? <a href="signup.php">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+
     </div>
-    <img src="images/image.jpg" alt="Image Here">
+    <footer>
+        <p>Copyright &copy; 2024 Survive the Forest Team</p>
+        <a href="leaderboard.php">Visit Leaderboard</a>
+    </footer>
 </body>
 
 </html>

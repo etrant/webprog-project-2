@@ -1,31 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
+}
+
 body {
-    background-image:url("../images/LDbackground.jpg");
-	background-repeat:no-repeat;
-	background-attachment:fixed;
-	background-size:100% 100%;
-    color: white;
+  background-image: url("../images/LDbackground.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  color: white;
+  width: 100%;
 }
 
 h1 {
-    margin-top: 5%;
-    text-align: center;
+  margin-top: 5%;
+  text-align: center;
 }
 
 .outerdiv {
-    margin-top: 0;
-    margin-left: 25%;
-    margin-right: 25%;
-    display: flex;
-    flex-direction: row;
-    font-size: 20px;
+  margin-top: 0;
+  margin-left: 25%;
+  margin-right: 25%;
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
 }
 
 .left {
-    width: 50%;
-    text-align: center;
+  width: 50%;
+  text-align: center;
 }
 
 .right {
-    width: 50%;
-    text-align: center;
+  width: 50%;
+  text-align: center;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 40px;
 }

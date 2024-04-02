@@ -30,7 +30,7 @@
 </html>
 
 <!--
-        //<form method=”post” action=”<?php echo htmlspecialchars($_SERVER[‘PHP_SELF’]); ?>"></form> 
+        //<form method=”post” action=”<?php //echo htmlspecialchars($_SERVER[‘PHP_SELF’]); ?>"></form> 
 
 
     // Display starting image (clearly defined image size and effects per page)
