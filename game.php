@@ -1,9 +1,7 @@
 <?php
-// check for open session
-if (!session_id()) session_start();
-// check if user logged in
-if (!isset($_SESSION["user"])) {
-    header("Location: " . "index.php");
+include('helper_functions.php');
+if (!isLoggedIn()){
+    redirect("index.php");
 }
 ?>
 
@@ -20,7 +18,6 @@ if (!isset($_SESSION["user"])) {
 <body>
     <div class="container">
         <?php
-        include('helper_functions.php');
         // updating level id
         if (isset($_POST["level_id"])) {
             if (!empty($_SESSION["level_id"])) {

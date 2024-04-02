@@ -51,3 +51,20 @@ function setupSession(string $user)
     $_SESSION["score"]  = $data[2];
     $_SESSION["level_id"]  = $data[3];
 }
+
+
+function isLoggedIn()
+{
+    // check for open session
+    if (!session_id()) session_start();
+    // check if user logged in, redirect if they're not
+    if (!isset($_SESSION["user"])) {
+        return false;
+    }
+    return true;
+}
+
+function redirect(string $redirect)
+{
+    header("Location: " . $redirect);
+}

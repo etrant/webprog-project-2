@@ -1,3 +1,10 @@
+<?php
+include("helper_functions.php");
+if (isLoggedIn()) {
+    redirect("game.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +29,6 @@
             $line = fgets($file);
             $data = explode(",", $line);
             if ($user === trim($data[0]) && $pass === trim($data[1])) {
-                include("helper_functions.php");
                 setupSession($_POST["username"]);
     ?>
                 <div class="sucessful">
