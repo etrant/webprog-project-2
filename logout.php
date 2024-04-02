@@ -1,5 +1,7 @@
 <?php
-session_start(); // Start the session if not already started
+include("helper_functions.php");
+
+if (!session_id()) session_start();
 
 // Unset all session variables
 $_SESSION = array();
@@ -8,5 +10,4 @@ $_SESSION = array();
 session_destroy();
 
 // Redirect to the login screen (index.php)
-header("Location: index.php");
-exit; // Make sure to exit after redirection
+redirect("index.php");

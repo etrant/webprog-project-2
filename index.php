@@ -39,11 +39,9 @@ if (isLoggedIn()) {
                 </div>
         <?php
                 fclose($file);
-                exit();
+                exit;
             }
         }
-
-        fclose($file);
         ?>
         <h2 class="failed">Invalid Username and/or Password</h2>
     <?php

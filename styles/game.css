@@ -39,7 +39,7 @@ body {
   gap: 20px;
 }
 
-button {
+.option {
   padding-left: 20px;
   background-color: transparent;
   color: white;

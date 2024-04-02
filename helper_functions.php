@@ -11,7 +11,8 @@ function getUserData(string $username)
     }
     return null;
 }
-function userExists($user){
+function userExists($user)
+{
     $lines = file("account.txt", FILE_IGNORE_NEW_LINES);
     foreach ($lines as $line) {
         $userData = explode(",", $line);
@@ -61,17 +62,20 @@ function setupSession(string $user)
     $_SESSION["level_id"]  = $data[3];
 }
 
-function generateSignOutButton() {
-    echo '<div style="position: absolute; top: 20px; left: 20px;">
-              <form action="logout.php" method="post">
-                  <button type="submit" class="logout">Sign Out</button>
-              </form>
-          </div>';
+function generateSignOutButton()
+{
+?>
+    <div style="position: absolute; top: 20px; left: 20px;">
+        <form action="logout.php" method="post">
+            <button type="submit" class="logout" value="Logout">Logout</button>
+        </form>
+    </div>';
+<?php
 }
 function isLoggedIn()
 {
-    // check for open session
     if (!session_id()) session_start();
+
     // check if user logged in, redirect if they're not
     if (!isset($_SESSION["user"])) {
         return false;
@@ -82,21 +86,24 @@ function isLoggedIn()
 function redirect(string $redirect)
 {
     header("Location: " . $redirect);
+    exit;
 }
 ?>
 
 <style>
-    .logout{
-        width: 150px;
-       position: absolute;
-       top: 10px;
-       left: 10px;
+    .logout {
+        opacity: 0.9;
+        width: 100px;
+        text-align: center;
+        position: absolute;
+        top: 10px;
+        left: 10px;
         color: white;
-  background-color: #000000;
-  padding: 10px 20px;
-  border: none;
-  font-weight: bold;
-  border-radius: 4px;
-  border: solid white 1px;
+        padding: 10px 20px;
+        background-color: transparent;
+        border: none;
+        font-weight: bold;
+        border-radius: 4px;
+        border: solid white 1px;
     }
-    </style>
+</style>

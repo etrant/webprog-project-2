@@ -49,8 +49,8 @@ generateSignOutButton();
                 </p>
             </div>
             <form id="options" method="post" action="game.php">
-                <button type="submit" name="level_id" value="1">Option 1</button>
-                <button type="submit" name="level_id" value="2">Option 2</button>
+                <button class="option" type="submit" name="level_id" value="1">Option 1</button>
+                <button class="option" type="submit" name="level_id" value="2">Option 2</button>
                 <!-- <button type="submit" name="level_id" value="99">Check status</button> -->
             </form>
         <?php
@@ -62,7 +62,7 @@ generateSignOutButton();
                 <p>This is a test page.</p>
             </div>
             <form id="options" method="post" action="game.php">
-                <button type="submit" name="level_id" value="0">Return to start.</button>
+                <button class="option" type="submit" name="level_id" value="0">Return to start.</button>
             </form>
         <?php
         } else if ($level == 2) {
@@ -73,7 +73,7 @@ generateSignOutButton();
                 <p>This is a test page.</p>
             </div>
             <form id="options" method="post" action="game.php">
-                <button type="submit" name="level_id" value="0">Return to start.</button>
+                <button class="option" type="submit" name="level_id" value="0">Return to start.</button>
             </form>
         <?php
         }
