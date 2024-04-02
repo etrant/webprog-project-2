@@ -63,7 +63,7 @@ if (isLoggedIn()) {
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username" width="60" placeholder="Enter your username" required>
                 <label for="user">Password</label>
-                <input type="text" name="password" id="password" placeholder="Enter your password" required>
+                <input type="password" name="password" id="password" placeholder="Enter your password" required>
                 <div class="signup-group">
                     <button type="submit" value="Login">Login</button>
                     <p>Don't have an account? <a href="signup.php">Sign up</a></p>
