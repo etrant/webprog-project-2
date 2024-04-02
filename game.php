@@ -1,6 +1,6 @@
 <?php
 include('helper_functions.php');
-if (!isLoggedIn()){
+if (!isLoggedIn()) {
     redirect("index.php");
 }
 ?>
@@ -13,6 +13,7 @@ if (!isLoggedIn()){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survive the Forest</title>
     <link rel="stylesheet" href="styles/game.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
