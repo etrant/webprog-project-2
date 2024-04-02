@@ -5,6 +5,10 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   background-image: url("../images/LDbackground.jpg");
   background-repeat: no-repeat;

@@ -47,12 +47,8 @@
                 <?php
 
                 if (isset($_POST["username"])) {
-                    if (!session_id()) session_start();
                     include("helper_functions.php");
-                    $data = getUserData($_POST["username"]);
-                    $_SESSION["user"]  = $data[0];
-                    $_SESSION["score"]  = $data[2];
-                    $_SESSION["level_id"]  = $data[3];
+                    setupSession($_POST["username"]);
                 ?>
 
                     <div class="sucessful">
