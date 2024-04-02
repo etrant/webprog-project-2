@@ -3,6 +3,7 @@ include('helper_functions.php');
 if (!isLoggedIn()) {
     redirect("index.php");
 }
+generateSignOutButton();
 ?>
 
 <!DOCTYPE html>

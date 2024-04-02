@@ -31,6 +31,7 @@ if (isLoggedIn()) {
             $data = explode(",", $line);
             if ($user === trim($data[0]) && $pass === trim($data[1])) {
                 setupSession($_POST["username"]);
+                generateSignOutButton();
     ?>
                 <div class="sucessful">
                     <h2>Successful Login: Welcome back <?php echo $_SESSION["user"] ?></h2>

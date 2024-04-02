@@ -10,31 +10,47 @@
 </head>
 
 <body>
-    <?php
-    if (isset($_POST["username"]) && isset($_POST["password"])) {
 
-        $user = $_POST["username"];
-        $pass = $_POST["password"];
-        $passConfirm = $_POST["password-confirm"];
+<?php
+if(isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["password-confirm"])){
+    $user = $_POST["username"];
+    $pass = $_POST["password"];
+    $passConfirm= $_POST["password-confirm"];
+    include("helper_functions.php");
+ if(userExists($user)){
+?>
+ <p class="failed">Username Already Exist</p>  
+<?php
+ }
 
-        if ($passConfirm != $pass) {
+ else  if($passConfirm != $pass){
 
-    ?>
-            <p class="failed">Both passwords must be the exact same</p>
+        ?>
+        <p class="failed">Both passwords must be the exact same</p>  
 
-    <?php
-        } else {
+<?php
+}    
+else{
+if (!session_id()) session_start();
+                  
+                    setupSession($_POST["username"]);
+                    generateSignOutButton();
+                              ?>
+ 
+   
+ <div class="sucessful">
+          <h2> Registered! Welcome <?php echo $_SESSION["user"]; ?></h2>
+           <a href="game.php">Begin your journey</a>
+      </div>
+<?php
+  $file_name = 'account.txt';
+  $file = fopen($file_name,'a');
+  fwrite($file, $user . ',' . $pass . ',' . '0' . ',' . '0' . "\n");
+  fclose($file);
 
-
-            $file_name = 'account.txt';
-            $file = fopen($file_name, 'a');
-            // Usename, password, nights survived, level_id
-            fwrite($file, $user . ',' . $pass . ',' . '0' . ',' . '0' . "\n");
-            fclose($file);
-        }
-    }
-    ?>
-
+}
+}
+?>
 
     <div class="container">
         <img src="images/tree.png" style="filter:invert(1);">
@@ -45,32 +61,17 @@
                 <p>A spine-chilling text-based journey through a forest long forgotten</p>
             </div>
             <form method="post" action="signup.php">
-                <?php
-
-                if (isset($_POST["username"])) {
-                    include("helper_functions.php");
-                    setupSession($_POST["username"]);
-                ?>
-
-                    <div class="sucessful">
-                        <h2> Registered! Welcome <?php echo $_SESSION["user"]; ?></h2>
-                        <a href="game.php">Begin your journey</a>
-                    </div>
-                <?php
-                } else {
-                ?>
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="username" width="60" placeholder="Enter your username" required>
-                    <label for="user">Password</label>
-                    <input type="text" name="password" id="password" placeholder="Enter your password" required>
-                    <label for="confirm">Confirm Password</label>
-                    <input type="text" name="password-confirm" id="confirm" placeholder="Enter your password again" required> <BR><br>
-                    <div class="signup-group">
-                        <button type="submit" value="Sign Up">Sign Up</button>
-                        <p>Have an account? <a href="index.php">Login</a></p>
-                    </div>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" width="60" placeholder="Enter your username" required>
+                <label for="user">Password</label>
+                <input type="password" name="password" id="password"  placeholder="Enter your password" required>
+                <label for="confirm">Confirm Password</label>
+                <input type="password" name="password-confirm" id="confirm"  placeholder="Enter your password again" required> <BR><br>
+                <div class="signup-group">
+                    <button type="submit" value="Sign Up">Sign Up</button>
+                    <p>Have an account? <a href="index.php">Login</a></p>
+                </div>
             </form>
-        <?php } ?>
         </div>
     </div>
 
