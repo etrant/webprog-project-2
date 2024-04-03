@@ -1,5 +1,6 @@
 <?php
 include('helper_functions.php');
+include("narrative.php");
 if (!isLoggedIn()) {
     redirect("index.php");
 }
@@ -35,48 +36,7 @@ generateSignOutButton();
 
         // state machine
         $level = $_SESSION["level_id"];
-        if ($level == 0) {
-        ?>
-            <img src="images/start.jpg" alt="">
-            <div class="narrative">
-                <p class="">
-                    You awaken to find yourself in solitude, a cool breeze brushes lightly against your skin.
-                    Before you stands a dilapidated stone structure, its ancient walls whispering tales of old.
-                </p>
-                <br>
-                <p>
-                    The forest around you hums with life, yet you are strikingly <strong>alone</strong>.
-                </p>
-            </div>
-            <form id="options" method="post" action="game.php">
-                <button class="option" type="submit" name="level_id" value="1">Option 1</button>
-                <button class="option" type="submit" name="level_id" value="2">Option 2</button>
-                <!-- <button type="submit" name="level_id" value="99">Check status</button> -->
-            </form>
-        <?php
-        } else if ($level == 1) {
-        ?>
-            <h1>1</h1>
-            <img src="images/start.jpg" alt="">
-            <div class="narrative">
-                <p>This is a test page.</p>
-            </div>
-            <form id="options" method="post" action="game.php">
-                <button class="option" type="submit" name="level_id" value="0">Return to start.</button>
-            </form>
-        <?php
-        } else if ($level == 2) {
-        ?>
-            <h1>2</h1>
-            <img src="images/start.jpg" alt="">
-            <div class="narrative">
-                <p>This is a test page.</p>
-            </div>
-            <form id="options" method="post" action="game.php">
-                <button class="option" type="submit" name="level_id" value="0">Return to start.</button>
-            </form>
-        <?php
-        }
+        generateStory(intval($level));
         ?>
     </div>
 </body>

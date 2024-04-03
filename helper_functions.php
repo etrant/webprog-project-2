@@ -69,7 +69,7 @@ function generateSignOutButton()
         <form action="logout.php" method="post">
             <button type="submit" class="logout" value="Logout">Logout</button>
         </form>
-    </div>';
+    </div>
 <?php
 }
 function isLoggedIn()
