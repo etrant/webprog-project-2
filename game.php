@@ -21,20 +21,13 @@ generateSignOutButton();
 <body>
     <div class="container">
         <?php
-        // updating level id
         if (isset($_POST["level_id"])) {
-            if (!empty($_SESSION["level_id"])) {
-                $_SESSION["p_level_id"] = $_SESSION["level_id"];
-            }
             $_SESSION["level_id"] = $_POST["level_id"];
             updateLevelID();
         } else {
             $data = getUserData($_SESSION["user"]);
             $_SESSION["level_id"] = $data[3];
-            $_SESSION["p_level_id"] = $_SESSION["level_id"];
         }
-
-        // state machine
         $level = $_SESSION["level_id"];
         generateStory(intval($level));
         ?>

@@ -11,6 +11,7 @@ function getUserData(string $username)
     }
     return null;
 }
+
 function userExists($user)
 {
     $lines = file("account.txt", FILE_IGNORE_NEW_LINES);
@@ -30,6 +31,26 @@ function getSurvivedCount(array $userData)
 function getLevelID(array $userData)
 {
     return $userData[3];
+}
+
+function incrementScore()
+{
+    $username = $_SESSION["user"];
+    if (!isset($username)) return null;
+
+    $lines = file("account.txt", FILE_IGNORE_NEW_LINES);
+    $result = "";
+    foreach ($lines as $line) {
+        $userData = explode(",", $line);
+        if ($userData[0] === $username) {
+            $userData[2] = intval($userData[2]);
+            $userData[2]++;
+            $result .= implode(",", $userData) . "\n";
+        } else {
+            $result .= $line;
+        }
+    }
+    file_put_contents("account.txt", $result);
 }
 
 // This can invoke a race condition since mutex locks are not built into PHP
