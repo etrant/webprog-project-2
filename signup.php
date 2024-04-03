@@ -31,6 +31,7 @@
         } else {
             $file_name = 'account.txt';
             $file = fopen($file_name, 'a');
+            // username, password, endings found, level_id
             fwrite($file, $user . ',' . $pass . ',' . '0' . ',' . '0' . "\n");
             fclose($file);
             setupSession($user);
